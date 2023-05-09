@@ -45,4 +45,10 @@ We're excited to introduce this AI Voice Chatbot project, which brings together 
 
 For inquiries, feedback, or collaboration opportunities, please reach out to [your contact information].
 
+### NOTE
+
+frontEnd local host : 3030
+backend local host : 8000
+localhost:8000/docs : shows built in documentation(FastApi) e.g(http://127.0.0.1:8000/docs)
+
 ---
