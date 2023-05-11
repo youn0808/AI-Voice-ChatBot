@@ -41,6 +41,6 @@ async def check_health():
 # Note: Not playing in browser when using past requests
 
 
-# @app.post("/post-audio/")
-# async def post_audio(file: UploadFile = File(...)):
-#     print("Got post")
+@app.post("/post-audio/")
+async def post_audio(file: UploadFile = File(...)):
+    print("Got post")
