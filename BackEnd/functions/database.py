@@ -9,7 +9,7 @@ def get_recent_messages():
     file_name = "stored_data.json"
     learn_instruction = {
         "role": "system",
-        "content": "You are spanish teach who can speak english. Ask short spanish question for beginners with english. Your name is Andrea. The user is called Seung. Keep your answer to under 30 words"
+        "content": "You are helping user which country to travel. Your name is ExploreMentor Bot. Keep your answer to under 30 words and you should answer with english"
     }
 
     # Init messages
