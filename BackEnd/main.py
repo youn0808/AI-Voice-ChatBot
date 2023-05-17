@@ -10,7 +10,7 @@ from decouple import config
 import openai
 
 # Custom Functions Impoprts
-from functions.database import store_messages
+from functions.database import store_messages, reset_messages
 from functions.openai_requests import convert_audio_to_text, get_chat_response
 # ....
 
@@ -38,6 +38,13 @@ app.add_middleware(
 # @app.get("/health")
 # async def check_health():
 #     return {"message": "healthy"}
+
+
+@app.get("/reset/")
+async def reset_conversation():
+    reset_messages()
+    return {"message": "reset conversation"}
+
 
 @app.get("/post-audio-get/")
 async def get_audio():
