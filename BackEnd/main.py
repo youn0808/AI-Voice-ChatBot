@@ -58,10 +58,26 @@ async def get_audio():
     # Guard: Ensure message decoded
     if not message_decoded:
         return HTTPException(status_code=400, detail="Failed to decode audio")
+
     # Get chatGPT responses (Feed decoded message to chatGPT and get response)
     chat_response = get_chat_response(message_decoded)
     store_messages(message_decoded, chat_response)
-    print(chat_response)
+
+    if not chat_response:
+        return HTTPException(status_code=400, detail="Failed to chat response")
+
+    # convert chat response to audio
+    audio_output = convert_text_to_voice(chat_response)
+
+    if not audio_output:
+        return HTTPException(status_code=400, detail="Failed to audio response")
+
+    # create a generator that yiel chunck of data
+    def iterfile():
+        yield audio_output
+
+    # Return audio file
+    return StreamingResponse(iterfile(), media_type="audio/mpeg")
 
     return "Done"
 

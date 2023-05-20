@@ -1,7 +1,7 @@
 import requests
 from decouple import config
 
-ELEVEN_LABS_API_KEY = config("ELEVEN_LAB_API_KeY")
+ELEVEN_LABS_API_KEY = config("ELEVEN_LABS_API_KEY")
 
 # USE ELEVEN lab
 # Convert Text to Voice
@@ -30,7 +30,7 @@ def convert_text_to_voice(message):
 
     # send request
     try:
-        response = requests.post(endpoint, json=body, header=headers)
+        response = requests.post(endpoint, json=body, headers=headers)
     except Exception as e:
         return
     if response.status_code == 200:
