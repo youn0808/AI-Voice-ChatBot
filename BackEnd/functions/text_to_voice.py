@@ -18,7 +18,6 @@ def convert_text_to_voice(message):
     }
 
     # Define Voice
-
     voice_rachel = "21m00Tcm4TlvDq8ikWAM"
 
     # constructing headers and endpoint
