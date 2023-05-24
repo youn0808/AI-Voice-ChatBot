@@ -35,7 +35,6 @@ app.add_middleware(
 
 # End Points--------------------------------------------------
 
-
 # @app.get("/health")
 # async def check_health():
 #     return {"message": "healthy"}
@@ -74,7 +73,6 @@ async def post_audio(file: UploadFile = File(...)):
 
     # convert chat response to audio
     audio_output = convert_text_to_voice(chat_response)
-
     if not audio_output:
         return HTTPException(status_code=400, detail="Failed to audio response")
 
