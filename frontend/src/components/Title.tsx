@@ -12,11 +12,27 @@ function Title({ setMessages }: Props) {
   const resetConversation = async () => {
     setIsRestting(true);
 
+    await axios
+      .get("http://localhost:8000/reset")
+      .then((res) => {
+        if (res.status == 200) {
+          setMessages([]);
+        } else {
+          console.error("An error with API request to backend");
+        }
+      })
+      .catch((e) => {
+        console.error(e.message);
+      });
     // Add logic
     setIsRestting(false);
   };
 
-  return <div>Hello</div>;
+  return (
+    <div>
+      <button className="bg-indigo-500 p-5">Reset Button</button>
+    </div>
+  );
 }
 
 export default Title;
