@@ -40,13 +40,13 @@ app.add_middleware(
 #     return {"message": "healthy"}
 
 
-@app.get("/reset/")
+@app.get("/reset")
 async def reset_conversation():
     reset_messages()
     return {"message": "reset conversation"}
 
 
-@app.post("/post-audio/")
+@app.post("/post-audio")
 async def post_audio(file: UploadFile = File(...)):
 
     # Get Saved audio

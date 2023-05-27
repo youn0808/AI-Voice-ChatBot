@@ -10,9 +10,7 @@ function Controller() {
   return (
     <div className="h-screen overflow-y-hidden">
       <Title setMessages={setMessages} />
-      <div className="flex flex-col justify-between h-full overflow-y-scroll pb-96">
-        Placeholder
-      </div>
+      <div className="flex flex-col justify-between h-full overflow-y-scroll pb-96"></div>
     </div>
   );
 }
