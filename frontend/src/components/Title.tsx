@@ -29,12 +29,12 @@ function Title({ setMessages }: Props) {
   };
 
   return (
-    <div className="flex justify-between items-center w-full p-4 bg-gray-900 text-white ">
+    <div className="flex justify-between items-center w-full p-4 bg-blue-500 text-white ">
       <div className="italic">ExploreMentor Bot</div>
       <button
         onClick={resetConversation}
         className={
-          "transition-all duration-300 text-blue-300 hover:text-pink-500 " +
+          "transition-all duration-300 text-blue-100 hover:text-red-500 " +
           (isResetting ? "animate-pulse" : "")
         }
       >
