@@ -1,12 +1,13 @@
 import { useState } from "react";
 import Title from "./Title";
-
+import RecordMsg from "./RecordMsg";
 function Controller() {
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<any[]>([]);
 
   const createBlobUrl = (data: any) => {};
   const handleStop = async () => {};
+
   return (
     <div className="h-screen overflow-y-hidden">
       <Title setMessages={setMessages} />
@@ -14,7 +15,7 @@ function Controller() {
         {/* {Recorder} */}
         <div className="fixed bottom-0 w-full py-6 border-t text-center bg-gradient-to-r from-blue-600 to-green-200 text-white">
           <div className="flex justify-center items-center w-full">
-            <div>Recorder</div>
+            <RecordMsg handleStop={handleStop} />
           </div>
         </div>
       </div>
