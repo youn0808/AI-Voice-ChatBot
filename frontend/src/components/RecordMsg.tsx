@@ -20,8 +20,8 @@ function RecordMsg({ handleStop }: Props) {
             <RecordIcon
               classText={
                 status == "recording"
-                  ? "animate-pulse text-red-500"
-                  : "text-sky-500"
+                  ? "animate-pulse text-red-800"
+                  : "text-sky-300"
               }
             />
           </button>
