@@ -18,7 +18,16 @@ function Controller() {
 
     //Append recorded new message to messages
     const myMessage = { sender: "me", blobUrl };
-    const messagesArr = [...messages, myMessage];
+    const messagesArray = [...messages, myMessage];
+
+    //Convert blob url to blob object
+    fetch(blobUrl)
+      .then((res) => res.blob())
+      .then(async (blob) => {
+        //construct audio to send file
+        const formData = new FormData();
+        formData.append("fiile", blob, "myFile.wav");
+      });
 
     setIsLoading(false);
   };
