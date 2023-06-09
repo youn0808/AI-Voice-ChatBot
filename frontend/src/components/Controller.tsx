@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Title from "./Title";
 import RecordMsg from "./RecordMsg";
+import axios from "axios";
 function Controller() {
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<any[]>([]);
@@ -26,7 +27,33 @@ function Controller() {
       .then(async (blob) => {
         //construct audio to send file
         const formData = new FormData();
-        formData.append("fiile", blob, "myFile.wav");
+        formData.append("file", blob, "myFile.wav");
+
+        //send the form data to backend API endpoint
+        await axios
+          .post("http://localhost:8000/post-audio", formData, {
+            headers: { "Content-Type": "audio/mpeg" },
+            responseType: "arraybuffer",
+          })
+          .then((res: any) => {
+            //displaying to front-end
+            const blob = res.data;
+            const audio = new Audio();
+            audio.src = createBlobUrl(blob);
+
+            //Append to audio
+            const botMessage = { sender: "rachel", blobUrl: audio.src };
+            messagesArray.push(botMessage);
+            setMessages(messagesArray);
+
+            //Alay audio
+            setIsLoading(false);
+            audio.play();
+          })
+          .catch((err) => {
+            console.error(err.message);
+            setIsLoading(false);
+          });
       });
 
     setIsLoading(false);
