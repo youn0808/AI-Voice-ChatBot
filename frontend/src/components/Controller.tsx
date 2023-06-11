@@ -66,7 +66,28 @@ function Controller() {
         {/* Conversation */}
         <div className="mt-5 px-5">
           {messages?.map((audio, index) => {
-            return <div></div>;
+            return (
+              <div
+                key={index + audio.sender}
+                className={
+                  "flex flex-col" +
+                  (audio.sender === "rachel" ? " flex items-end" : "")
+                }
+              >
+                {/* Sender */}
+                <div className="mt-4">
+                  <p
+                    className={
+                      audio.sender == "rachel"
+                        ? "text-right mr-2 italic text-green-500"
+                        : "ml-2 italic text-blue-500"
+                    }
+                  >
+                    {audio.sender}
+                  </p>
+                </div>
+              </div>
+            );
           })}
         </div>
         {/* {Recorder} */}
