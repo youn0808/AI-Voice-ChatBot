@@ -85,6 +85,8 @@ function Controller() {
                   >
                     {audio.sender}
                   </p>
+                  {/* audio messages */}
+                  <audio src={audio.blobUrl} controls />
                 </div>
               </div>
             );
