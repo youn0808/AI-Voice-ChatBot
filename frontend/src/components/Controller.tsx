@@ -91,6 +91,17 @@ function Controller() {
               </div>
             );
           })}
+          {messages.length == 0 && !isLoading && (
+            <div className="text-center italic mt-10">
+              Send Chat Bot a message...
+            </div>
+          )}
+
+          {isLoading && (
+            <div className="text-center italic mt-10 animate-pulse">
+              Give me a few seconds....
+            </div>
+          )}
         </div>
         {/* {Recorder} */}
         <div className="fixed bottom-0 w-full py-6 border-t text-center bg-gradient-to-r from-blue-600 to-green-200 text-white">
