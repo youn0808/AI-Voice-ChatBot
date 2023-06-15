@@ -6,7 +6,7 @@ function Controller() {
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<any[]>([]);
 
-  const [blob, setBlob] = useState("");
+  // const [blob, setBlob] = useState("");
 
   const createBlobUrl = (data: any) => {
     const blob = new Blob([data], { type: "audio/mpeg" });
@@ -91,6 +91,7 @@ function Controller() {
               </div>
             );
           })}
+
           {messages.length == 0 && !isLoading && (
             <div className="text-center italic mt-10">
               Send Chat Bot a message...
