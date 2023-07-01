@@ -6,8 +6,6 @@ function Controller() {
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<any[]>([]);
 
-  // const [blob, setBlob] = useState("");
-
   const createBlobUrl = (data: any) => {
     const blob = new Blob([data], { type: "audio/mpeg" });
     const url = window.URL.createObjectURL(blob);
@@ -47,16 +45,14 @@ function Controller() {
             setMessages(messagesArray);
 
             //Alay audio
-            setIsLoading(false);
             audio.play();
+            setIsLoading(false);
           })
           .catch((err) => {
             console.error(err.message);
             setIsLoading(false);
           });
       });
-
-    setIsLoading(false);
   };
 
   return (
@@ -91,17 +87,17 @@ function Controller() {
               </div>
             );
           })}
-
           {messages.length == 0 && !isLoading && (
             <div className="text-center italic mt-10">
               Send Chat Bot a message...
             </div>
           )}
-
-          {isLoading && (
+          {isLoading ? (
             <div className="text-center italic mt-10 animate-pulse">
               Give me a few seconds....
             </div>
+          ) : (
+            ""
           )}
         </div>
         {/* {Recorder} */}
