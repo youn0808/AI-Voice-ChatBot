@@ -35,9 +35,10 @@ app.add_middleware(
 
 # End Points--------------------------------------------------
 
-# @app.get("/health")
-# async def check_health():
-#     return {"message": "healthy"}
+
+@app.get("/")
+async def welcome():
+    return {"message": "Welcome"}
 
 
 @app.get("/reset")
