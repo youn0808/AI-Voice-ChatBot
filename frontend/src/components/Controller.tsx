@@ -1,15 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Title from "./Title";
 import RecordMsg from "./RecordMsg";
 import axios from "axios";
+
 function Controller() {
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<any[]>([]);
 
   const createBlobUrl = (data: any) => {
     const blob = new Blob([data], { type: "audio/mpeg" });
-    const url = window.URL.createObjectURL(blob);
-    return url;
+    return URL.createObjectURL(blob);
   };
 
   const handleStop = async (blobUrl: string) => {
@@ -60,7 +60,7 @@ function Controller() {
       <Title setMessages={setMessages} />
       <div className="flex flex-col justify-between h-full overflow-y-scroll pb-96">
         {/* Conversation */}
-        <div className="mt-5 px-5">
+        <div className="mt-3 px-3">
           {messages?.map((audio, index) => {
             return (
               <div
@@ -71,15 +71,16 @@ function Controller() {
                 }
               >
                 {/* Sender */}
-                <div className="mt-4">
+                <div className="mt-2">
                   <p
                     className={
                       audio.sender == "Explor Mentor"
-                        ? "text-right mr-2 italic text-green-500"
+                        ? "text-right mr-2 italic text-green-500 text"
                         : "ml-2 italic text-blue-500"
                     }
                   >
-                    {audio.sender}
+                    {audio.sender.charAt(0).toUpperCase() +
+                      audio.sender.slice(1)}
                   </p>
                   {/* audio messages */}
                   <audio src={audio.blobUrl} controls />
@@ -89,7 +90,7 @@ function Controller() {
           })}
           {messages.length == 0 && !isLoading && (
             <div className="text-center italic mt-10">
-              Send Chat Bot a message...
+              Feel free to ask any questions about your trip plans
             </div>
           )}
           {isLoading ? (
@@ -101,7 +102,7 @@ function Controller() {
           )}
         </div>
         {/* {Recorder} */}
-        <div className="fixed bottom-0 w-full py-6 border-t text-center bg-gradient-to-r from-blue-600 to-green-200 text-white">
+        <div className="fixed bottom-0 w-full py-3 border-t text-center bg-gradient-to-r from-blue-600 to-green-200 text-white">
           <div className="flex justify-center items-center w-full">
             <RecordMsg handleStop={handleStop} />
           </div>

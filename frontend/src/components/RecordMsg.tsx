@@ -11,7 +11,7 @@ function RecordMsg({ handleStop }: Props) {
       audio
       onStop={handleStop}
       render={({ status, startRecording, stopRecording }) => (
-        <div className="mt-2">
+        <div className="mt-1">
           <button
             onMouseDown={startRecording}
             onMouseUp={stopRecording}
