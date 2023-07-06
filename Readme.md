@@ -1,4 +1,4 @@
-# AI Voice Chatbot Project (Start)11
+# AI Voice Chatbot Project (Start) 06
 
 Welcome to the AI Voice Chatbot project! This project aims to create an advanced voice chatbot that leverages cutting-edge technologies to deliver a seamless conversational experience. The back-end employs OpenAI Whisper and OpenAI ChatGPT for speech-to-text and text generation, while eelevenLab AI is used for text-to-speech conversion. The front-end, built with React and styled using Tailwind CSS, provides an intuitive user interface to interact with the chatbot.
 
