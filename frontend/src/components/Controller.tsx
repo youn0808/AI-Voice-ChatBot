@@ -7,11 +7,13 @@ function Controller() {
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState<any[]>([]);
 
+  // Function to create a blob URL from binary data
   const createBlobUrl = (data: any) => {
     const blob = new Blob([data], { type: "audio/mpeg" });
     return URL.createObjectURL(blob);
   };
 
+  // Function to handle the stop event when recording audio
   const handleStop = async (blobUrl: string) => {
     setIsLoading(true);
 
