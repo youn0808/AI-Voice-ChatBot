@@ -1,6 +1,9 @@
+// Props type definition for the RecordIcon component
 type Props = {
   classText: string;
 };
+
+// Functional component to render a record icon SVG
 function RecordIcon({ classText }: Props) {
   return (
     <>
