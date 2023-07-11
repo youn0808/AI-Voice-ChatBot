@@ -1,30 +1,28 @@
 import { useState } from "react";
 import axios from "axios";
 
-type Props = {
-  setMessages: any;
+type TitleProps = {
+  setMessages: any; // Function to set messages, should have a more specific type
 };
 
-function Title({ setMessages }: Props) {
+function Title({ setMessages }: TitleProps) {
   const [isResetting, setIsRestting] = useState(false);
-
-  //   Reset tje cpmverstatopm
+  // Function to reset the conversation by making an API request
   const resetConversation = async () => {
     setIsRestting(true);
 
-    await axios
-      .get("http://localhost:8000/reset")
-      .then((res) => {
-        if (res.status == 200) {
-          setMessages([]);
-        } else {
-          console.error("An error with API request to backend");
-        }
-      })
-      .catch((e) => {
-        console.error(e.message);
-      });
-    // Add logic
+    try {
+      const response = await axios.get("http://localhost:8000/reset");
+
+      if (response.status === 200) {
+        setMessages([]); // Reset messages
+      } else {
+        console.error("An error with API request to backend");
+      }
+    } catch (error: any) {
+      console.error(error.message);
+    }
+
     setIsRestting(false);
   };
 
