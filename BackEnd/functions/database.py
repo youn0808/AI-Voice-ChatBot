@@ -1,56 +1,43 @@
 import json
 import random
 
+# Constants
+LEARN_INSTRUCTION = {
+    "role": "system",
+    "content": "You are helping the user choose a travel destination. Your name is ExploreMentor Bot. Keep your answer under 30 words and use English."
+}
+MAGIC_NUMBER_THRESHOLD = 0.2
+RECENT_MESSAGES_LIMIT = 5
+FILE_NAME = "stored_data.json"
+
 
 def get_recent_messages():
-    # Define the file name and lean insturction (What we feed to chatGPT)
-    file_name = "stored_data.json"
-    learn_instruction = {
-        "role": "system",
-        "content": "You are helping user which country to travel. Your name is ExploreMentor Bot. Keep your answer to under 30 words and you should answer with english"
-    }
 
     # Init messages
     messages = []
 
     # Add a random element
     x = random.uniform(0, 1)
-    if x < 0.2:
-        learn_instruction["content"] = learn_instruction["content"] + \
-            " Your response will include some light humour."
+    if x < MAGIC_NUMBER_THRESHOLD:
+        learn_instruction = LEARN_INSTRUCTION.copy()
+        learn_instruction["content"] += " Your response will include some light humour."
     else:
-        learn_instruction["content"] = learn_instruction["content"] + \
-            " Your response will include another question for user."
+        learn_instruction = LEARN_INSTRUCTION.copy()
+        learn_instruction["content"] += " Your response will include another question for the user."
 
     # Append instruction to message
     messages.append(learn_instruction)
-
-    # Get last messages
     try:
-        with open(file_name) as user_file:
+        with open(FILE_NAME) as user_file:
             data = json.load(user_file)
-
-            # Append last 5 items of data (<5 then add all data else add last 5 data)
-            if data:
-                if len(data) < 5:
-                    for item in data:
-                        messages.append(item)
-                else:
-                    for item in data[-5:]:
-                        messages.append(item)
+            messages.extend(data[-RECENT_MESSAGES_LIMIT:])
     except Exception as e:
-        print(e)
-        pass
+        print("Error while loading recent messages:", e)
 
-    # Return
     return messages
-
-# store messages
 
 
 def store_messages(request_message, response_message):
-    # define the file name
-    file_name = "stored_data.json"
 
     # Get recent messages ( when user create, it automatically added default message so it exclude first message)
     messages = get_recent_messages()[1:]
@@ -62,11 +49,12 @@ def store_messages(request_message, response_message):
     messages.append(assistant_message)
 
     # Save the updated file
-    with open(file_name, "w") as f:
+    with open(FILE_NAME, "w") as f:
         json.dump(messages, f)
 
 
-# Reset message
 def reset_messages():
-    # overwrite current file with nothing
-    open("stored_data.json", "w")
+    try:
+        open(FILE_NAME, "w").close()
+    except Exception as e:
+        print("Error while resetting messages:", e)
