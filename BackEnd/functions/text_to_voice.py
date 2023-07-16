@@ -1,7 +1,7 @@
 import requests
 from decouple import config
 
-ELEVEN_LABS_API_KEY = config("ELEVEN_LABS_API_KEY")
+ELEVEN_LABS_API_KEY = config('ELEVEN_LABS_API_KEY')
 
 # USE ELEVEN lab
 # Convert Text to Voice
