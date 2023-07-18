@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Title from "./Title";
 import RecordMsg from "./RecordMsg";
 import axios from "axios";
@@ -31,10 +31,16 @@ function Controller() {
 
         //send the form data to backend API endpoint
         await axios
-          .post("http://localhost:8000/post-audio", formData, {
-            headers: { "Content-Type": "audio/mpeg" },
-            responseType: "arraybuffer",
-          })
+
+          // .post("http://localhost:8000/post-audio", formData, {
+          .post(
+            "https://ai-voice-chatbot-ouq9.onrender.com/post-audio",
+            formData,
+            {
+              headers: { "Content-Type": "audio/mpeg" },
+              responseType: "arraybuffer",
+            }
+          )
           .then((res: any) => {
             //displaying to front-end
             const blob = res.data;

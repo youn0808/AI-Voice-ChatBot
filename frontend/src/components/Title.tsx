@@ -12,7 +12,11 @@ function Title({ setMessages }: TitleProps) {
     setIsRestting(true);
 
     try {
-      const response = await axios.get("http://localhost:8000/reset");
+      // const response = await axios.get("http://localhost:8000/reset");
+
+      const response = await axios.get(
+        "https://ai-voice-chatbot-ouq9.onrender.com/reset"
+      );
 
       if (response.status === 200) {
         setMessages([]); // Reset messages
