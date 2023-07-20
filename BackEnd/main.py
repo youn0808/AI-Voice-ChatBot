@@ -21,7 +21,8 @@ app = FastAPI()
 # CORS - Origins
 origins = [
     "http://localhost:3030",
-    "https://ai-voice-chatbot-ouq9.onrender.com"
+    "https://ai-voice-chatbot-ouq9.onrender.com",
+    "https://explor-mentor-ai-bot.netlify.app/"
 ]
 
 # cors - Middleware
