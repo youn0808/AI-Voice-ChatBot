@@ -3,7 +3,6 @@
 # uvicorn main:app --reload
 
 # Main Imports
-from typing import Required
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -20,11 +19,7 @@ from functions.text_to_voice import convert_text_to_voice
 app = FastAPI()
 
 # CORS - Origins
-origins = [
-    "http://localhost:3030",
-    "https://explor-mentor-ai-bot.netlify.app"
-    "https://ai-voice-chatbot-ouq9.onrender.com",
-]
+origins = ["*"]
 
 # cors - Middleware
 
@@ -37,10 +32,6 @@ app.add_middleware(
 )
 
 # End Points--------------------------------------------------
-
-cors = Required('cors')
-
-app.use(cors())
 
 
 @app.get("/")
