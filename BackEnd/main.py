@@ -65,6 +65,7 @@ async def post_audio(file: UploadFile = File(...)):
 
     # Get chatGPT responses (Feed decoded message to chatGPT and get response)
     chat_response = get_chat_response(message_decoded)
+    print('chat response:', chat_response)
     store_messages(message_decoded, chat_response)
 
     if not chat_response:
@@ -72,6 +73,8 @@ async def post_audio(file: UploadFile = File(...)):
 
     # convert chat response to audio
     audio_output = convert_text_to_voice(chat_response)
+    print('audio_output:', chat_response)
+
     if not audio_output:
         return HTTPException(status_code=400, detail="Failed to audio response")
 
