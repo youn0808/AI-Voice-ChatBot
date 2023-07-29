@@ -9,7 +9,7 @@ function Controller() {
 
   // Function to create a blob URL from binary data
   const createBlobUrl = (data: any) => {
-    const blob = new Blob([data], { type: "audio/mpeg" });
+    const blob = new Blob([data], { type: "*/*" });
     return URL.createObjectURL(blob);
   };
 

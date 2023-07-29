@@ -23,7 +23,7 @@ def convert_text_to_voice(message):
     # constructing headers and endpoint
     headers = {"xi-api-key": ELEVEN_LABS_API_KEY,
                "Content-Type": "application/json",
-               "accept": "*"}
+               "accept": "audio/mpeg"}
 
     endpoint = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_rachel}"
 
