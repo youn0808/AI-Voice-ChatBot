@@ -9,7 +9,7 @@ function Controller() {
 
   // Function to create a blob URL from binary data
   const createBlobUrl = (data: any) => {
-    const blob = new Blob([data], { type: "*/*" });
+    const blob = new Blob([data], { type: "audio/*" });
     return URL.createObjectURL(blob);
   };
 
@@ -30,9 +30,8 @@ function Controller() {
         formData.append("file", blob, "myFile.wav");
 
         //send the form data to backend API endpoint
+        // .post("http://localhost:8000/post-audio", formData, {
         await axios
-
-          // .post("http://localhost:8000/post-audio", formData, {
           .post(
             "https://ai-voice-chatbot-ouq9.onrender.com/post-audio",
             formData,
@@ -42,6 +41,7 @@ function Controller() {
             }
           )
           .then((res: any) => {
+            console.log("Res:", res);
             //displaying to front-end
             const blob = res.data;
             const audio = new Audio();
@@ -50,6 +50,9 @@ function Controller() {
             //Append to audio
             const botMessage = { sender: "Explor Mentor", blobUrl: audio.src };
             messagesArray.push(botMessage);
+            console.log("messagesArray:", messagesArray);
+            console.log("botMessage:", botMessage);
+            console.log("messages", messages);
             setMessages(messagesArray);
 
             //Alay audio
@@ -57,7 +60,7 @@ function Controller() {
             setIsLoading(false);
           })
           .catch((err) => {
-            console.error(err.message);
+            console.error("error occur!", err.message);
             setIsLoading(false);
           });
       });
