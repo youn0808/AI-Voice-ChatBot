@@ -33,12 +33,15 @@ function Controller() {
         // "http://localhost:8000/post-audio"
         // "https://ai-voice-chatbot-ouq9.onrender.com/post-audio",
         await axios
-          .post("http://localhost:8000/post-audio", formData, {
-            headers: { "Content-Type": "audio/mpeg" },
-            responseType: "arraybuffer",
-          })
+          .post(
+            "https://ai-voice-chatbot-ouq9.onrender.com/post-audio",
+            formData,
+            {
+              headers: { "Content-Type": "audio/mpeg" },
+              responseType: "arraybuffer",
+            }
+          )
           .then((res: any) => {
-            console.log("Res:", res);
             //displaying to front-end
             const blob = res.data;
             const audio = new Audio();
@@ -47,9 +50,6 @@ function Controller() {
             //Append to audio
             const botMessage = { sender: "Explor Mentor", blobUrl: audio.src };
             messagesArray.push(botMessage);
-            console.log("messagesArray:", messagesArray);
-            console.log("botMessage:", botMessage);
-            console.log("messages", messages);
             setMessages(messagesArray);
 
             //Alay audio
