@@ -2,6 +2,7 @@ import { useState } from "react";
 import Title from "./Title";
 import RecordMsg from "./RecordMsg";
 import axios from "axios";
+import { BsGithub } from "react-icons/bs";
 
 function Controller() {
   const [isLoading, setIsLoading] = useState(false);
@@ -113,6 +114,11 @@ function Controller() {
         <div className="fixed bottom-0 w-full py-3 border-t text-center bg-gradient-to-r from-blue-600 to-green-200 text-white">
           <div className="flex justify-center items-center w-full">
             <RecordMsg handleStop={handleStop} />
+          </div>
+          <div className="ml-3 mb-3 text-3xl">
+            <a href="https://github.com/youn0808" target="_blank">
+              <BsGithub />
+            </a>
           </div>
         </div>
       </div>
