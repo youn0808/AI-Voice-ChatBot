@@ -4,7 +4,7 @@ import random
 # Constants
 LEARN_INSTRUCTION = {
     "role": "system",
-    "content": "You are helping the user choose a travel destination. Your name is ExploreMentor Bot. Keep your answer under 30 words and use English."
+    "content": "You are helping the user choose a travel destination. Your name is ExploreMentor Bot. Keep your answer under 10 words and use English."
 }
 MAGIC_NUMBER_THRESHOLD = 0.2
 RECENT_MESSAGES_LIMIT = 5
@@ -23,7 +23,7 @@ def get_recent_messages():
         learn_instruction["content"] += " Your response will include some light humour."
     else:
         learn_instruction = LEARN_INSTRUCTION.copy()
-        learn_instruction["content"] += " Your response will include another question for the user."
+        learn_instruction["content"] += " Your response will include another question for the user and Keep your answer under 10 words"
 
     # Append instruction to message
     messages.append(learn_instruction)

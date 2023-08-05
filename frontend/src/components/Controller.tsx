@@ -30,16 +30,13 @@ function Controller() {
         formData.append("file", blob, "myFile.wav");
 
         //send the form data to backend API endpoint
-        // .post("http://localhost:8000/post-audio", formData, {
+        // "http://localhost:8000/post-audio"
+        // "https://ai-voice-chatbot-ouq9.onrender.com/post-audio",
         await axios
-          .post(
-            "https://ai-voice-chatbot-ouq9.onrender.com/post-audio",
-            formData,
-            {
-              headers: { "Content-Type": "audio/mpeg" },
-              responseType: "arraybuffer",
-            }
-          )
+          .post("http://localhost:8000/post-audio", formData, {
+            headers: { "Content-Type": "audio/mpeg" },
+            responseType: "arraybuffer",
+          })
           .then((res: any) => {
             console.log("Res:", res);
             //displaying to front-end
