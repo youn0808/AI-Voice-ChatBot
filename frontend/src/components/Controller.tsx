@@ -97,9 +97,13 @@ function Controller() {
               </div>
             );
           })}
+
           {messages.length == 0 && !isLoading && (
             <div className="text-center italic mt-10">
-              Feel free to ask any questions about your trip plans
+              Feel free to ask any questions about your trip plans.
+              <p className="text-sm">
+                Answering the first question might take a bit longer.
+              </p>
             </div>
           )}
           {isLoading ? (
@@ -112,10 +116,10 @@ function Controller() {
         </div>
         {/* {Recorder} */}
         <div className="fixed bottom-0 w-full py-3 border-t text-center bg-gradient-to-r from-blue-600 to-green-200 text-white">
-          <div className="flex justify-center items-center w-full">
+          <div className="flex justify-center items-center w-full ">
             <RecordMsg handleStop={handleStop} />
           </div>
-          <div className="ml-3 mb-3 text-3xl">
+          <div className="fixed left-3 bottom-5 text-3xl hover:text-red-500 transition-all duration-300">
             <a href="https://github.com/youn0808" target="_blank">
               <BsGithub />
             </a>

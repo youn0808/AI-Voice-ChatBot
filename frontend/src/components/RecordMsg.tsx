@@ -24,7 +24,7 @@ function RecordMsg({ handleStop }: RecordMsgProps) {
             <RecordIcon
               classText={
                 status == "recording"
-                  ? "animate-pulse text-red-800"
+                  ? "animate-pulse text-red-500"
                   : "text-sky-300"
               }
             />
