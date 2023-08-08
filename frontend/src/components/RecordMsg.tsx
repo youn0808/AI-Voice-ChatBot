@@ -19,7 +19,7 @@ function RecordMsg({ handleStop }: RecordMsgProps) {
           <button
             onMouseDown={startRecording}
             onMouseUp={stopRecording}
-            className="bg-white p-4 rounded-full text-black"
+            className="p-4 bg-white text-black rounded-full  hover:bg-blue-500 transition-all duration-100"
           >
             <RecordIcon
               classText={

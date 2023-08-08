@@ -84,7 +84,7 @@ function Controller() {
                   <p
                     className={
                       audio.sender == "Explor Mentor"
-                        ? "text-right mr-2 italic text-green-500 text"
+                        ? "text-right mr-2 italic text-yellow-500 text"
                         : "ml-2 italic text-blue-500"
                     }
                   >
@@ -115,11 +115,11 @@ function Controller() {
           )}
         </div>
         {/* {Recorder} */}
-        <div className="fixed bottom-0 w-full py-3 border-t text-center bg-gradient-to-r from-blue-600 to-green-200 text-white">
+        <div className="fixed bottom-0 w-full py-2 border-t text-center bg-gradient-to-r from-gray-900 to-stone-800  text-white">
           <div className="flex justify-center items-center w-full ">
             <RecordMsg handleStop={handleStop} />
           </div>
-          <div className="fixed left-3 bottom-5 text-3xl hover:text-red-500 transition-all duration-300">
+          <div className="fixed left-3 bottom-5 text-3xl hover:text-blue-500 transition-all duration-300">
             <a href="https://github.com/youn0808" target="_blank">
               <BsGithub />
             </a>
