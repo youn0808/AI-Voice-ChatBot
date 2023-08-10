@@ -99,7 +99,7 @@ function Controller() {
           })}
 
           {messages.length == 0 && !isLoading && (
-            <div className="text-center italic mt-10">
+            <div className="text-center text-white italic mt-10">
               Feel free to ask any questions about your trip plans.
               <p className="text-sm">
                 Answering the first question might take a bit longer.
@@ -120,7 +120,10 @@ function Controller() {
             <RecordMsg handleStop={handleStop} />
           </div>
           <div className="fixed left-3 bottom-5 text-3xl hover:text-blue-500 transition-all duration-300">
-            <a href="https://github.com/youn0808" target="_blank">
+            <a
+              href="https://github.com/youn0808/AI-Voice-ChatBot"
+              target="_blank"
+            >
               <BsGithub />
             </a>
           </div>
