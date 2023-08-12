@@ -23,3 +23,25 @@ Explormentor Bot is an AI-powered voice chat travel advisor application that ass
 5. **Convert Text to Speech (eelevenLab AI)**: Chatbot-generated text is converted back to speech using eelevenLab AI's text-to-speech conversion service. The resulting audio is sent to the front-end for user feedback.
 
 - **Styling with Tailwind CSS**: The UI is styled using Tailwind CSS, a utility-first CSS framework. Tailwind's classes enable rapid UI development and easy customization.
+
+### Run server
+
+### Frontend
+
+To build and start the frontend development server, follow these steps:
+
+1. Navigate to the `frontend` directory: `cd frontend`
+2. Build the project: `yarn build`
+3. Start the development server: `yarn dev`
+
+### Backend
+
+To run the FastAPI backend server, follow these steps:
+
+1. Navigate to the `backend` directory: `cd backend`
+2. Create a virtual environment: `python3 -m venv venv`
+3. Activate the virtual environment:
+   - On Windows: `venv\Scripts\activate`
+   - On macOS and Linux: `source venv/bin/activate`
+4. Install dependencies: `pip install -r requirements.txt`
+5. Start the FastAPI server: `uvicorn main:app --reload`
