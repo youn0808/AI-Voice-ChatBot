@@ -1,26 +1,14 @@
-# AI Voice Chatbot Project
+# Explormentor Bot - AI Voice Chat Travel Advisor
 
-Welcome to the AI Voice Chatbot project! This project aims to create an advanced voice chatbot that leverages cutting-edge technologies to deliver a seamless conversational experience. The back-end employs OpenAI Whisper and OpenAI ChatGPT for speech-to-text and text generation, while eelevenLab AI is used for text-to-speech conversion. The front-end, built with React and styled using Tailwind CSS, provides an intuitive user interface to interact with the chatbot.
+Explormentor Bot is an AI-powered voice chat travel advisor application that assists users in planning their trips through voice interactions. The application is built with React for the frontend and FastAPI for the backend. It features a human-like voice assistant powered by ChatGPT and Eleven Lab to provide the most advanced chatbot experience.
 
-## Table of Contents
+## Features
 
-- [Back-end](#back-end)
-  - [API Route Endpoints](#api-route-endpoints)
-- [Front-end](#front-end)
-  - [Technology Stack](#technology-stack)
-  - [Styling](#styling)
-
-## Front-end
-
-The front-end offers an engaging and user-friendly interface for interacting with the AI voice chatbot. Key features of the front-end include:
-
-- **WireFrame**: The user interface design is based on a wireframe that outlines the layout and components, ensuring a cohesive design structure.
-
-- **React**: The front-end is developed using React, providing a modular and efficient way to manage UI components and state.
-
-## Back-end
-
-The back-end components are designed to handle the processing of user inputs and the generation of chatbot responses. Here's an overview of the API route endpoints:
+- Interactive Voice Interaction: Users can interact with the chatbot using voice commands for an intuitive experience.
+- Trip Planning Assistance: The chatbot helps users create travel plans by responding to their queries and providing recommendations.
+- Advanced AI Models: The chatbot's responses are generated using advanced AI models, including ChatGPT and Eleven Lab.
+- Frontend: The user interface is developed using React, providing a responsive and user-friendly design.
+- Backend: The backend is powered by FastAPI, a high-performance web framework for building APIs with Python.
 
 ### API Route Endpoints
 
@@ -35,15 +23,3 @@ The back-end components are designed to handle the processing of user inputs and
 5. **Convert Text to Speech (eelevenLab AI)**: Chatbot-generated text is converted back to speech using eelevenLab AI's text-to-speech conversion service. The resulting audio is sent to the front-end for user feedback.
 
 - **Styling with Tailwind CSS**: The UI is styled using Tailwind CSS, a utility-first CSS framework. Tailwind's classes enable rapid UI development and easy customization.
-
-We're excited to introduce this AI Voice Chatbot project, which brings together cutting-edge technologies to create a natural and interactive conversational experience. You're encouraged to explore the codebase, contribute, and tailor the project to your requirements.
-
-For inquiries, feedback, or collaboration opportunities, please reach out to [your contact information].
-
-### NOTE
-
-frontEnd local host : 3030
-backend local host : 8000
-localhost:8000/docs : shows built in documentation(FastApi) e.g(http://127.0.0.1:8000/docs)
-
----
