@@ -45,3 +45,13 @@ To run the FastAPI backend server, follow these steps:
    - On macOS and Linux: `source venv/bin/activate`
 4. Install dependencies: `pip install -r requirements.txt`
 5. Start the FastAPI server: `uvicorn main:app --reload`
+
+## .env File Configuration
+
+Create a `.env` file in the root directory of the project and configure the following environment variables:
+
+```dotenv
+ELEVEN_LABS_API_KEY=
+OPEN_AI_KEY=
+OPEN_AI_ORG=
+```
