@@ -107,7 +107,8 @@ function Controller() {
             </div>
           )}
           {isLoading ? (
-            <div className="text-center italic mt-10 animate-pulse">
+            <div className="text-center italic mt-10 animate-pulse text-white">
+              <p>For the first time, it might take around 30 seconds.</p>
               Give me a few seconds....
             </div>
           ) : (
